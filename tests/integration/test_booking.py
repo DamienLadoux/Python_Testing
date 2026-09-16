@@ -291,3 +291,43 @@ def test_can_book_future_competition(monkeypatch):
     assert response.status_code == 200
     assert b'Future Competition' in response.data
     assert b'<form action="/purchasePlaces" method="post">' in response.data
+
+
+def test_points_are_updated_in_response(monkeypatch):
+    monkeypatch.setattr(
+        server,
+        'competitions',
+        [
+            {
+                'name': 'Spring Festival',
+                'date': '2099-03-27 10:00:00',
+                'numberOfPlaces': '25'
+            }
+        ]
+    )
+
+    monkeypatch.setattr(
+        server,
+        'clubs',
+        [
+            {
+                'name': 'Iron Temple',
+                'email': 'admin@irontemple.com',
+                'points': '4'
+            }
+        ]
+    )
+
+    client = server.app.test_client()
+
+    response = client.post(
+        '/purchasePlaces',
+        data={
+            'competition': 'Spring Festival',
+            'club': 'Iron Temple',
+            'places': '2'
+        }
+    )
+
+    assert response.status_code == 200
+    assert b'Points available: 2' in response.data
