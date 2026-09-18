@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Points Display Board</title>
+</head>
+<body>
+
+    <h1>Points Display Board</h1>
+
+    {% for club in clubs %}
+        <p>{{ club.name }}: {{ club.points }} points</p>
+    {% endfor %}
+
+</body>
+</html>
