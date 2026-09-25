@@ -49,3 +49,10 @@
     We also like to show how well we're testing, so there's a module called 
     [coverage](https://coverage.readthedocs.io/en/coverage-5.1/) you should add to your project.
 
+6. Performance with Locust :
+
+Eendpoints / & /points tested
+69 request done, 0 error 
+Maximum response time = 19 ms, <5 seconds requested for loading & 2 seconds for updates.
+--> performances are matching project assesment
+
