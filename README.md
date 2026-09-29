@@ -51,7 +51,7 @@
 
 6. Performance with Locust :
 
-Eendpoints / & /points tested
+Endpoints / & /points tested
 69 request done, 0 error 
 Maximum response time = 19 ms, <5 seconds requested for loading & 2 seconds for updates.
 --> performances are matching project assesment
