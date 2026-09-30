@@ -11,3 +11,14 @@ class GUDLFTUser(HttpUser):
     @task
     def points_board(self):
         self.client.get("/points")
+
+    @task
+    def purchase_places(self):
+        self.client.post(
+            "/purchasePlaces",
+            data={
+                "competition": "Future event",
+                "club": "Iron Temple",
+                "places": "1"
+            }
+        )
